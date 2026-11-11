@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Human Heart - Smart Organ Model</title>
+    <style>
+        :root {
+            --primary-color: #d90429;
+            --secondary-color: #0077b6;
+            --bg-color: #f8f9fa;
+            --text-color: #2b2d42;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-color), #8d0801);
+            color: white;
+            text-align: center;
+            padding: 25px 20px;
+            position: relative;
+        }
+
+        /* Language Toggle Button Style */
+        .lang-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 1px solid white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .lang-btn:hover {
+            background: rgba(255, 255, 255, 0.4);
+        }
+
+        header h1 {
+            margin: 0 0 5px 0;
+            font-size: 22px;
+        }
+
+        header p {
+            margin: 0;
+            font-size: 13px;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 15px;
+        }
+
+        .section-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        h2 {
+            color: var(--primary-color);
+            font-size: 18px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 8px;
+            margin-top: 0;
+        }
+
+        /* Blood Circulation Styles */
+        .circulation-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .step-box {
+            display: flex;
+            align-items: flex-start;
+            background: #fff5f5;
+            border-left: 4px solid var(--primary-color);
+            padding: 12px 15px;
+            border-radius: 6px;
+        }
+
+        .step-box.oxygenated {
+            background: #f0f8ff;
+            border-left-color: var(--secondary-color);
+        }
+
+        .step-num {
+            background: var(--primary-color);
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+            margin-right: 12px;
+            flex-shrink: 0;
+        }
+
+        .step-box.oxygenated .step-num {
+            background: var(--secondary-color);
+        }
+
+        .step-content h4 {
+            margin: 0 0 4px 0;
+            font-size: 15px;
+        }
+
+        .step-content p {
+            margin: 0;
+            font-size: 13px;
+            color: #555;
+        }
+
+        /* Quiz Styles */
+        .quiz-question {
+            margin-bottom: 20px;
+        }
+
+        .quiz-question p {
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .options label {
+            display: block;
+            background: #f1f1f1;
+            padding: 10px 15px;
+            border-radius: 6px;
+            margin-bottom: 8px;
+            cursor: pointer;
+            font-size: 13px;
+            transition: background 0.2s;
+        }
+
+        .options label:hover {
+            background: #e4e4e4;
+        }
+
+        .options input {
+            margin-right: 10px;
+        }
+
+        .submit-btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: #b50322;
+        }
+
+        #quiz-result {
+            margin-top: 15px;
+            font-weight: bold;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        /* Language Utility Classes */
+        .lang-en { display: none; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <button class="lang-btn" onclick="toggleLanguage()">🌐 English / हिंदी</button>
+        <h1 class="lang-hi">❤️ मानव हृदय गाइड</h1>
+        <h1 class="lang-en">❤️ Human Heart Guide</h1>
+        
+        <p class="lang-hi">स्मार्ट ऑर्गन मॉडल इंटरैक्टिव वेब पेज</p>
+        <p class="lang-en">Smart Organ Model Interactive Web Page</p>
+    </header>
+
+    <div class="container">
+
+        <!-- Blood Circulation Section -->
+        <div class="section-card">
+            <h2 class="lang-hi">🩸 रक्त संचार (Blood Circulation)</h2>
+            <h2 class="lang-en">🩸 Blood Circulation</h2>
+            
+            <p class="lang-hi" style="font-size: 13px; color: #666;">हार्ट शरीर में खून को कैसे पंप करता है? इसके मुख्य चरण:</p>
+            <p class="lang-en" style="font-size: 13px; color: #666;">How does the heart pump blood through the body? Main steps:</p>
+            
+            <div class="circulation-steps">
+                <div class="step-box">
+                    <div class="step-num">1</div>
+                    <div class="step-content">
+                        <h4 class="lang-hi">अशुद्ध रक्त (Deoxygenated) का प्रवेश</h4>
+                        <h4 class="lang-en">Impure Blood Entry</h4>
+                        <p class="lang-hi">शरीर से अशुद्ध रक्त महाशिरा (Vena Cava) के जरिए हृदय के <b>दाएँ आलिंद (Right Atrium)</b> में आता है।</p>
+                        <p class="lang-en">Impure blood from the body enters the <b>Right Atrium</b> via Vena Cava.</p>
+                    </div>
+                </div>
+
+                <div class="step-box">
+                    <div class="step-num">2</div>
+                    <div class="step-content">
+                        <h4 class="lang-hi">दाएँ निलय (Ventricle) से फेफड़ों तक</h4>
+                        <h4 class="lang-en">Right Ventricle to Lungs</h4>
+                        <p class="lang-hi">रक्त दाएँ निलय में जाता है और वहां से <b>पल्मोनरी धमनी (Pulmonary Artery)</b> द्वारा फेफड़ों में ऑक्सीजन मिलने के लिए भेजा जाता है।</p>
+                        <p class="lang-en">Blood moves to the Right Ventricle and is sent to lungs via <b>Pulmonary Artery</b> for oxygenation.</p>
+                    </div>
+                </div>
+
+                <div class="step-box oxygenated">
+                    <div class="step-num">3</div>
+                    <div class="step-content">
+                        <h4 class="lang-hi">शुद्ध रक्त (Oxygenated) का प्रवेश</h4>
+                        <h4 class="lang-en">Pure Blood Entry</h4>
+                        <p class="lang-hi">फेफड़ों से ऑक्सीजन मिलने के बाद शुद्ध रक्त <b>पल्मोनरी शिरा (Pulmonary Veins)</b> के जरिए <b>बाएँ आलिंद (Left Atrium)</b> में आता है।</p>
+                        <p class="lang-en">After oxygenation, pure blood enters the <b>Left Atrium</b> via <b>Pulmonary Veins</b>.</p>
+                    </div>
+                </div>
+
+                <div class="step-box oxygenated">
+                    <div class="step-num">4</div>
+                    <div class="step-content">
+                        <h4 class="lang-hi">पूरे शरीर में पंप</h4>
+                        <h4 class="lang-en">Pump to Entire Body</h4>
+                        <p class="lang-hi">बाएँ निलय (Left Ventricle) से रक्त <b>महाधमनी (Aorta)</b> के जरिए पूरे शरीर में पंप कर दिया जाता है।</p>
+                        <p class="lang-en">From Left Ventricle, blood is pumped to the entire body through the <b>Aorta</b>.</p>
+                    </div>
+                </div>
